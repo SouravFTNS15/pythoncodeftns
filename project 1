@@ -1,0 +1,66 @@
+
+# todo_list.py
+
+todo_list = []
+
+def add_task(task):
+    todo_list.append(task)
+    print(f"Task '{task}' Edited!")
+
+def delete_task(task):
+    if task in todo_list:
+        todo_list.remove(task)
+        print(f"Task '{task}' Deleted!")
+    else:
+        print(f"Task '{task}' Do not find!")
+
+def edit_task(old_task, new_task):
+    if old_task in todo_list:
+        index = todo_list.index(old_task)
+        todo_list[index] = new_task
+        print(f"Task '{old_task}' Edited '{new_task}'!")
+    else:
+        print(f"Task '{old_task}' Do not find!")
+
+def complete_task(task):
+    if task in todo_list:
+        todo_list.remove(task)
+        print(f"Task '{task}' Completed!")
+    else:
+        print(f"Task '{task}' Do not find!")
+
+def show_tasks():
+    print("To_do list:")
+    for i, task in enumerate(todo_list, start=1):
+        print(f"{i}. {task}")
+
+while True:
+    print("\nOption:")
+    print("1. Add the Task")
+    print("2. Delete the task")
+    print("3. Edit the task")
+    print("4. Completed the Task")
+    print("5. Show the Task")
+    print("6. Go out")
+
+    option = input("Select the option: ")
+
+    if option == "1":
+        task = input("Write the Task: ")
+        add_task(task)
+    elif option == "2":
+        task = input("Write the task: ")
+        delete_task(task)
+    elif option == "3":
+        old_task = input("Write the old Task: ")
+        new_task = input("Write the new Task: ")
+        edit_task(old_task, new_task)
+    elif option == "4":
+        task = input("Write the Task: ")
+        complete_task(task)
+    elif option == "5":
+        show_tasks()
+    elif option == "6":
+        break
+    else:
+        print("Wrong Option!")
